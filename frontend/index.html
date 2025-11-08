@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CompanionAI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="app.js" type="module" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>CompanionAI</h1>
+        <p class="tagline">Let intelligence make the world kinder.</p>
+      </header>
+      <main>
+        <section id="auth">
+          <div class="panel">
+            <h2>Register</h2>
+            <form id="register-form">
+              <label>Email <input type="email" name="email" required /></label>
+              <label>Display name <input type="text" name="displayName" placeholder="Your name" /></label>
+              <label>Password <input type="password" name="password" required minlength="6" /></label>
+              <button type="submit">Create account</button>
+            </form>
+          </div>
+          <div class="panel">
+            <h2>Log in</h2>
+            <form id="login-form">
+              <label>Email <input type="email" name="email" required /></label>
+              <label>Password <input type="password" name="password" required /></label>
+              <button type="submit">Enter</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="dashboard" class="hidden">
+          <aside id="profile">
+            <div id="avatar-container">
+              <canvas id="avatar"></canvas>
+            </div>
+            <div class="profile-details">
+              <h2 id="profile-name"></h2>
+              <p id="profile-email"></p>
+              <label class="toggle">
+                <input type="checkbox" id="history-toggle" checked />
+                <span>Save my history</span>
+              </label>
+              <button id="logout">Log out</button>
+            </div>
+          </aside>
+          <section id="conversation">
+            <div id="chat-window"></div>
+            <form id="chat-form">
+              <textarea name="message" placeholder="Share how you're feeling..." required></textarea>
+              <div class="chat-actions">
+                <button type="button" id="speak-btn">🎙️ Speak</button>
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </section>
+          <section id="mood-tracker">
+            <h2>Mood Tracker</h2>
+            <canvas id="mood-chart"></canvas>
+          </section>
+        </section>
+      </main>
+      <footer>
+        <small>All facial analysis happens locally in your browser. No video is stored.</small>
+      </footer>
+    </div>
+  </body>
+</html>
