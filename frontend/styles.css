@@ -1,0 +1,249 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #e6f0ff, #fdf3ff 60%, #ffffff 100%);
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+  color: #1b1b2f;
+}
+
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.75rem;
+  margin: 0;
+}
+
+.tagline {
+  margin-top: 0.25rem;
+  color: #5f6c80;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#auth {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(31, 61, 89, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+button {
+  border-radius: 12px;
+  border: 1px solid rgba(91, 122, 175, 0.3);
+  padding: 0.75rem;
+  font: inherit;
+}
+
+button {
+  background: linear-gradient(135deg, #5d4bff, #8f59ff);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(93, 75, 255, 0.3);
+}
+
+#dashboard {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 1.5rem;
+}
+
+#dashboard.hidden {
+  display: none;
+}
+
+#profile {
+  background: rgba(15, 27, 47, 0.85);
+  color: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  position: sticky;
+  top: 2rem;
+}
+
+#avatar-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffecd2, #fcb69f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#avatar {
+  width: 160px;
+  height: 160px;
+}
+
+.profile-details {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#conversation {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(31, 61, 89, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#chat-window {
+  max-height: 360px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-message {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.chat-message .bubble {
+  padding: 0.9rem 1.1rem;
+  border-radius: 16px;
+  max-width: 75%;
+  background: rgba(93, 75, 255, 0.1);
+  color: #1b1b2f;
+}
+
+.chat-message.ai {
+  flex-direction: row-reverse;
+}
+
+.chat-message.ai .bubble {
+  background: rgba(93, 75, 255, 0.85);
+  color: white;
+}
+
+.chat-message .meta {
+  font-size: 0.75rem;
+  color: #70809c;
+}
+
+#chat-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+#speak-btn {
+  background: #fff;
+  color: #5d4bff;
+  border: 1px solid rgba(93, 75, 255, 0.3);
+}
+
+#speak-btn.active {
+  background: rgba(93, 75, 255, 0.85);
+  color: white;
+}
+
+#logout {
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+}
+
+#mood-tracker {
+  grid-column: span 2;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(31, 61, 89, 0.12);
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #70809c;
+}
+
+@media (max-width: 920px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  #mood-tracker {
+    grid-column: span 1;
+  }
+
+  #profile {
+    position: static;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #avatar-container {
+    width: 120px;
+    height: 120px;
+  }
+}
