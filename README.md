@@ -1,1 +1,1 @@
-# companionai
+# companionAI
