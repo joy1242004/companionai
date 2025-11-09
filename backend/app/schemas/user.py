@@ -1,7 +1,16 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, constr
+
+
+# Pydantic's ``EmailStr`` type depends on the optional ``email_validator`` package.
+# The execution environment that runs the sample app cannot install additional
+# wheels from the internet, which caused the application to crash on import.  We
+# replicate the essential behaviour with a light-weight constrained string that
+# validates the general ``local@domain`` structure instead of relying on the
+# external dependency.
+EmailStr = constr(regex=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 
 class UserCreate(BaseModel):
